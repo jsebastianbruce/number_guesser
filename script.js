@@ -4,23 +4,21 @@ let currentRoundNumber = 1;
 
 // Write your code below:
 const generateTarget = () => {
-    return Math.floor(Math.random * 10)
-};
+    return Math.floor(Math.random() * 10);
+}
 
-const compareGuesses = (user, computer, secret) => {
-    const userDifference = Math.abs(secret - user);
-    const computerDifference = Math.abs(secret - computer);
-    return user <= computer;
-};
+const compareGuesses = (humanGuess, computerGuess, targetGuess) => {
+    const userDifference = Math.abs(targetGuess - humanGuess);
+    const computerDifference = Math.abs(targetGuess - computerGuess);
+    return userDifference <= computerDifference;
+}
 
-const updateScore = string => {
-    if (string === 'human') {
+const updateScore = (string) => {
+    if (string === 'user') {
         humanScore++;
     } else if (string === 'computer') {
         computerScore++;
     }
-};
-
-const advanceRound = () => {
-    currentRoundNumber++;
 }
+
+const advanceRound = () => currentRoundNumber++;
